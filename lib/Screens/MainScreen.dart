@@ -30,30 +30,33 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             //Welcome Text // SearchBar
             Container(
-              width: width,
-              height: width * .25,
               padding: EdgeInsets.symmetric(horizontal: width * .06),
+              margin: EdgeInsets.symmetric(vertical: height*.03),
               child: Stack(
                 children: [
                   Align(
                     alignment: Alignment.centerLeft,
-                    child: Row(
-                      children: [
-                        Text(
-                          'Good Morning,',
-                          style: TextStyle(
-                              color: darkPurple,
-                              fontWeight: FontWeight.w400,
-                              fontSize: width * .065),
-                        ),
-                        Text(
-                          ' Eleven',
-                          style: TextStyle(
-                              color: darkPurple,
-                              fontWeight: FontWeight.w700,
-                              fontSize: width * .065),
-                        ),
-                      ],
+                    child: Container(
+                      height: width * .15,
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Good Morning,',
+                            style: TextStyle(
+                                color: darkPurple,
+                                fontWeight: FontWeight.w400,
+                                fontSize: width * .065),
+                          ),
+                          Text(
+                            ' Eleven',
+                            style: TextStyle(
+                                color: darkPurple,
+                                fontWeight: FontWeight.w700,
+                                fontSize: width * .065),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   Align(
@@ -145,144 +148,139 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
             ),
-            //Whole Body
-            Column(
-                children: [
-                  //Genres Cards
-                  Container(
-                    width: width,
-                    height: width * .8,
-                    child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    physics: BouncingScrollPhysics(),
-                    children: [
-                      SizedBox(width: width*.04,),
-                      GenreCard(
-                        image: 'images/5.jpg',
-                        time: '42',
-                        name: 'Softly Back to Sleep',
-                      ),
-                      GenreCard(
-                        image: 'images/4.jpg',
-                        time: '23',
-                        name: 'Read and Study',
-                      ),
-                      GenreCard(
-                        image: 'images/3.jpg',
-                        time: '15',
-                        name: 'Relaxation',
-                      ),
-                      GenreCard(
-                        image: 'images/2.jpg',
-                        time: '7',
-                        name: 'Good Morning',
-                      ),
-                      GenreCard(
-                        image: 'images/1.jpg',
-                        time: '22',
-                        name: 'Feel the Wild',
-                      ),
-                      SizedBox(width: width*.04,),
-                    ]
-                      ),
-                  ),
-                  //Recommended Text
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: width * .06),
-                    child: Container(
-                      margin: EdgeInsets.only(top: width * .02),
-                      width: width,
-                      height: width * .2,
+            //Genres Cards
+            Container(
+              width: width,
+              height: width * .8,
+              child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  physics: BouncingScrollPhysics(),
+                  children: [
+                    SizedBox(width: width*.04,),
+                    GenreCard(
+                      image: 'images/5.jpg',
+                      time: '42',
+                      name: 'Softly Back to Sleep',
+                    ),
+                    GenreCard(
+                      image: 'images/4.jpg',
+                      time: '23',
+                      name: 'Read and Study',
+                    ),
+                    GenreCard(
+                      image: 'images/3.jpg',
+                      time: '15',
+                      name: 'Relaxation',
+                    ),
+                    GenreCard(
+                      image: 'images/2.jpg',
+                      time: '7',
+                      name: 'Good Morning',
+                    ),
+                    GenreCard(
+                      image: 'images/1.jpg',
+                      time: '22',
+                      name: 'Feel the Wild',
+                    ),
+                    SizedBox(width: width*.04,),
+                  ]
+              ),
+            ),
+            //Recommended Text
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: width * .06),
+              child: Container(
+                margin: EdgeInsets.only(top: width * .02),
+                width: width,
+                height: width * .2,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Text(
+                          'Recommended ',
+                          style: TextStyle(
+                              color: darkPurple,
+                              fontWeight: FontWeight.w700,
+                              fontSize: width * .06),
+                        ),
+                        Text(
+                          'Tracks',
+                          style: TextStyle(
+                              color: darkPurple,
+                              fontWeight: FontWeight.w400,
+                              fontSize: width * .06),
+                        ),
+                      ],
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        //  TODO
+                        print('see all');
+                      },
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Row(
-                            children: [
-                              Text(
-                                'Recommended ',
-                                style: TextStyle(
-                                    color: darkPurple,
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: width * .06),
-                              ),
-                              Text(
-                                'Tracks',
-                                style: TextStyle(
-                                    color: darkPurple,
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: width * .06),
-                              ),
-                            ],
+                          Text(
+                            'See all ',
+                            style: TextStyle(
+                                color: darkPurple,
+                                fontWeight: FontWeight.w400,
+                                fontSize: width * .04),
                           ),
-                          GestureDetector(
-                            onTap: () {
-                              //  TODO
-                              print('see all');
-                            },
-                            child: Row(
-                              children: [
-                                Text(
-                                  'See all ',
-                                  style: TextStyle(
-                                      color: darkPurple,
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: width * .04),
-                                ),
-                                Icon(
-                                  Icons.arrow_forward_ios,
-                                  color: darkPurple,
-                                  size: width * .05,
-                                )
-                              ],
-                            ),
+                          Icon(
+                            Icons.arrow_forward_ios,
+                            color: darkPurple,
+                            size: width * .05,
                           )
                         ],
                       ),
-                    ),
-                  ),
-                  //Recommended Cards
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: width * .06),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        SongCard(
-                            genre: '7 Days of managing stress',
-                            name: 'The Positive Trap',
-                            time: '8'),
-                        SongCard(
-                            genre: 'Relaxation',
-                            name: 'Rain on Leaves',
-                            time: '15'),
-                        SongCard(
-                            genre: 'Study and Read',
-                            name: 'Rain of December',
-                            time: '21'),
-                        SongCard(
-                            genre: 'Warm Romance',
-                            name: 'In The Name of Love',
-                            time: '9'),
-                        SongCard(
-                            genre: '7 Days of managing stress',
-                            name: 'The Positive Trap',
-                            time: '2'),
-                        SongCard(
-                            genre: '7 Days of managing stress',
-                            name: 'The Positive Trap',
-                            time: '14'),
-                        SongCard(
-                            genre: '7 Days of managing stress',
-                            name: 'The Positive Trap',
-                            time: '9'),
-                        SongCard(
-                            genre: '7 Days of managing stress',
-                            name: 'The Positive Trap',
-                            time: '1'),
-                      ],
-                    ),
-                  ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+            //Recommended Cards
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: width * .06),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  SongCard(
+                      genre: '7 Days of managing stress',
+                      name: 'The Positive Trap',
+                      time: '8'),
+                  SongCard(
+                      genre: 'Relaxation',
+                      name: 'Rain on Leaves',
+                      time: '15'),
+                  SongCard(
+                      genre: 'Study and Read',
+                      name: 'Rain of December',
+                      time: '21'),
+                  SongCard(
+                      genre: 'Warm Romance',
+                      name: 'In The Name of Love',
+                      time: '9'),
+                  SongCard(
+                      genre: '7 Days of managing stress',
+                      name: 'The Positive Trap',
+                      time: '2'),
+                  SongCard(
+                      genre: '7 Days of managing stress',
+                      name: 'The Positive Trap',
+                      time: '14'),
+                  SongCard(
+                      genre: '7 Days of managing stress',
+                      name: 'The Positive Trap',
+                      time: '9'),
+                  SongCard(
+                      genre: '7 Days of managing stress',
+                      name: 'The Positive Trap',
+                      time: '1'),
                 ],
               ),
+            ),
           ],
         ),
       ),
