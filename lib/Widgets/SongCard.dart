@@ -2,22 +2,21 @@ import 'package:flutter/material.dart';
 
 import '../Constants.dart';
 
-class TrackTile extends StatelessWidget {
-  const TrackTile({
+class SongCard extends StatelessWidget {
+  const SongCard({
     Key key,
-    @required this.width,
     @required this.time,
     @required this.genre,
     @required this.name,
   });
 
-  final double width;
   final String time;
   final String genre;
   final String name;
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     return GestureDetector(
       onTap: (){
       //  TODO

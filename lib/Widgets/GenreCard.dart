@@ -4,13 +4,11 @@ import '../Constants.dart';
 
 class GenreCard extends StatefulWidget {
   GenreCard({
-    @required this.width,
     @required this.image,
     @required this.name,
     @required this.time,
   });
 
-  final double width;
   final String image;
   final String name;
   final String time;
@@ -36,15 +34,16 @@ class _GenreCardState extends State<GenreCard> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: widget.width * .6,
-      height: widget.width * .7,
-      margin: EdgeInsets.symmetric(horizontal: widget.width * .02),
-      padding: EdgeInsets.symmetric(horizontal: widget.width * .04, vertical: widget.width * .04),
+    double width = MediaQuery.of(context).size.width;
+    return Container (
+      width: width * .6,
+      height: width * .7,
+      margin: EdgeInsets.symmetric(horizontal: width * .02),
+      padding: EdgeInsets.symmetric(horizontal: width * .04, vertical: width * .04),
       //Image
       decoration: BoxDecoration(
           image: DecorationImage(image: AssetImage(widget.image), fit: BoxFit.cover),
-          borderRadius: BorderRadius.circular(widget.width * .05)),
+          borderRadius: BorderRadius.circular(width * .05)),
       child: Stack(
         children: [
           //TextOverImage
@@ -54,15 +53,15 @@ class _GenreCardState extends State<GenreCard> with TickerProviderStateMixin {
             children: [
               Container(
                 padding: EdgeInsets.symmetric(
-                    horizontal: widget.width * .04, vertical: widget.width * .025),
+                    horizontal: width * .04, vertical: width * .025),
                 decoration: BoxDecoration(
                     color: Colors.black.withOpacity(.1),
-                    borderRadius: BorderRadius.circular(widget.width * .1)),
+                    borderRadius: BorderRadius.circular(width * .1)),
                 child: Text(
                   '${widget.time} min',
                   style: TextStyle(
                     color: Colors.white54,
-                    fontSize: widget.width * .03,
+                    fontSize: width * .03,
                   ),
                 ),
               ),
@@ -73,17 +72,17 @@ class _GenreCardState extends State<GenreCard> with TickerProviderStateMixin {
                     '${widget.name}',
                     style: TextStyle(
                         color: Colors.white,
-                        fontSize: widget.width * .05,
+                        fontSize: width * .05,
                         fontWeight: FontWeight.w500),
                   ),
                   SizedBox(
-                    height: widget.width * .01,
+                    height: width * .01,
                   ),
                   Text(
                     'Most Popular',
                     style: TextStyle(
                         color: Colors.white,
-                        fontSize: widget.width * .04,
+                        fontSize: width * .04,
                         fontWeight: FontWeight.w300),
                   ),
                 ],
@@ -102,24 +101,24 @@ class _GenreCardState extends State<GenreCard> with TickerProviderStateMixin {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
-                      width: widget.width*.25,
-                      height : widget.width*.25,
-                      padding: EdgeInsets.all(widget.width*.05),
+                    Container (
+                      width: width*.25,
+                      height : width*.25,
+                      padding: EdgeInsets.all(width*.05),
                       decoration: BoxDecoration(
                           color: Colors.white24,
                           shape: BoxShape.circle
                       ),
-                      child: Container(
-                        width: widget.width*.2,
-                        height: widget.width*.2,
+                      child: Container (
+                        width: width*.2,
+                        height: width*.2,
                         decoration: BoxDecoration(
                             color: Colors.white,
                             shape: BoxShape.circle
                         ),
                         child: ScaleTransition(
                             scale: _tween.animate(CurvedAnimation(parent: _controller, curve: Curves.elasticOut)),
-                            child: Icon(Icons.play_arrow,color: lightPurple,size: widget.width*.08,),
+                            child: Icon(Icons.play_arrow,color: lightPurple,size: width*.08,),
                         ),
                       ),
                     ),
